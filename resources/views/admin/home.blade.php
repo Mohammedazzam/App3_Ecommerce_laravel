@@ -1,7 +1,6 @@
 @extends('admin.admin_layouts')
 
 @section('admin_content')
-
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
@@ -105,5 +104,4 @@
         </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
-
 @endsection
