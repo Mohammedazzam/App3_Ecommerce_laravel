@@ -61,7 +61,7 @@
                 <div class="modal-body pd-20">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Category Name</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category" name="category_name">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category" name="category_name">
                         </div>
 
                 <div class="modal-footer">
