@@ -26,16 +26,17 @@
 
                         </thead>
                         <tbody>
-
+                        @foreach($category as $key=>$row)
                         <tr>
-                            <td>Tiger</td>
-                            <td>Nixon</td>
+                            <td>{{$key +1}}</td>
+                            <td>{{$row->category_name}}</td>
                             <td>
                                 <a href="" class="btn btn-sm btn-info">Edit</a>
                                 <a href="" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
 
                         </tr>
+                        @endforeach
 
                         </tbody>
                     </table>
@@ -55,6 +56,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <form method="post" action="{{route('store.category')}}">
                     @csrf
