@@ -2,7 +2,7 @@
 
 
 
-Route::get('/', function () {return view('layouts.app');});
+Route::get('/', function () {return view('pages/index');});
 //auth & user
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
