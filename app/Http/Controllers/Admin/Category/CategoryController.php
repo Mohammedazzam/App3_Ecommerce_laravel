@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Admin\Category;
-//use DB;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -42,5 +42,16 @@ class CategoryController extends Controller
         );
         return Redirect()->back()->with($notification);
 
+    }
+
+
+    public function Deletecategory($id){
+
+        DB::table('categories')->where('id',$id)->delete();
+        $notification=array(
+            'messege'=>'Category Delete Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
     }
 }
