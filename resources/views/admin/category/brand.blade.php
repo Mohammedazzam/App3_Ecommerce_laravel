@@ -34,7 +34,7 @@
                                 <td><img src="{{URL::to($row->brand_logo)}}"height="70px;"width="80px;"></td>
                                 <td>
                                     <a href="{{URL::to('edit/category/'.$row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="{{URL::to('delete/category/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                    <a href="{{URL::to('delete/brand/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                                 </td>
 
                             </tr>
@@ -89,6 +89,7 @@
                             <button type="submit" class="btn btn-info pd-x-20">Submit</button>
                             <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div><!-- modal-dialog -->
