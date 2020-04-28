@@ -30,3 +30,5 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 Route::get('admin/categories', 'Admin\Category\CategoryController@category')->name('categories');
 Route::post('admin/store/category', 'Admin\Category\CategoryController@storecategory')->name('store.category');
 Route::get('delete/category/{id}', 'Admin\Category\CategoryController@Deletecategory');
+Route::get('edit/category/{id}', 'Admin\Category\CategoryController@Editcategory');
+Route::post('update/category/{id}', 'Admin\Category\CategoryController@Updatecategory');
