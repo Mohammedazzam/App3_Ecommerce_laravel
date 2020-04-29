@@ -51,4 +51,24 @@ class SubCategoryController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
+
+    public function EditSubcat($id){
+
+        $subcat = DB::table('subcategories')->where('id',$id)->first();
+        $category = DB::table('categories')->get(); //هيك راح يعرض كل الكاتيجوري وراح يجيبهم من الداتا بيز
+        return view('admin.category.edit_subcat',compact('subcat','category'));
+    }
+
+    public function UpdateSubcat(Request $request,$id){
+
+        $data = array();
+        $data['category_id'] = $request->category_id;
+        $data['subcategory_name'] = $request->subcategory_name;
+        DB::table('subcategories')->where('id',$id)->update($data);
+        $notification=array(
+            'messege'=>'Sub Category Updated Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->route('sub.categories')->with($notification);
+    }
 }
