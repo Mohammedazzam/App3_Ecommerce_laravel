@@ -59,3 +59,13 @@ Route::get('edit/coupon/{id}', 'Admin\Category\CouponController@EditCoupon');
 Route::post('update/coupon/{id}', 'Admin\Category\CouponController@UpdateCoupon');
 
 
+
+
+    //Newslater
+Route::get('admin/newslater', 'Admin\Category\CouponController@Newslater')->name('admin.newslater');
+
+
+
+    //Front All Routes
+Route::post('store/newslater', 'FrontController@StoreNewslater')->name('store.newslater');
+

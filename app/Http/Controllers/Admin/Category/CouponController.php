@@ -64,4 +64,10 @@ class CouponController extends Controller
 
 
     }
+
+
+    public function Newslater(){
+        $sub = DB::table('newslaters')->get();
+        return view('admin.coupon.newslater',compact('sub'));
+    }
 }
