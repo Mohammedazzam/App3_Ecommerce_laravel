@@ -11,7 +11,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Subscriber List
 
-                    <a href="#" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">Add New</a>
+                    <a href="#" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">All Delete</a>
 
                 </h6>
 
@@ -29,12 +29,11 @@
                         <tbody>
                         @foreach($sub as $key=>$row)
                             <tr>
-                                <td>{{$key +1}}</td>
-                                <td>{{$row->emaail}}</td>
-                                <td>{{$row->created_at}}</td>
+                                <td><input type="checkbox">{{$key +1}}</td>
+                                <td>{{$row->email}}</td>
+                                <td>{{\Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</td>
                                 <td>
-                                    <a href="{{URL::to('edit/category/'.$row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="{{URL::to('delete/category/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                    <a href="{{URL::to('delete/sub/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                                 </td>
 
                             </tr>
