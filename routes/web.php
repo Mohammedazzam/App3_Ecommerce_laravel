@@ -67,6 +67,14 @@ Route::get('delete/sub/{id}', 'Admin\Category\CouponController@DeleteSub');
 
 
 
+
+    //Product All Route
+Route::get('admin/product/all', 'Admin\ProductController@index')->name('all.product');
+Route::get('admin/product/add', 'Admin\ProductController@create')->name('add.product');
+
+
+
+
     //Front All Routes
 Route::post('store/newslater', 'FrontController@StoreNewslater')->name('store.newslater');
 
