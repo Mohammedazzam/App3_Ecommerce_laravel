@@ -66,6 +66,8 @@ Route::get('admin/newslater', 'Admin\Category\CouponController@Newslater')->name
 Route::get('delete/sub/{id}', 'Admin\Category\CouponController@DeleteSub');
 
 
+    //For Show Category With Ajax
+Route::get('get/subcategory/{category_id}', 'Admin\ProductController@GetSubcat');
 
 
     //Product All Route
