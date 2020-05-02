@@ -123,9 +123,11 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image One (Main Thumbnali): <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_one">
+                                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);">
                                     <span class="custom-file-control"></span>
-                                </label>                            </div>
+                                    <img src="#" id="one">
+                                </label>
+                            </div>
                         </div><!-- col-4 -->
 
 
@@ -134,9 +136,11 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image Tow: <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_two">
+                                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);">
                                     <span class="custom-file-control"></span>
-                                </label>                            </div>
+                                    <img src="#" id="two">
+                                </label>
+                            </div>
                         </div><!-- col-4 -->
 
 
@@ -145,9 +149,11 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_three">
+                                    <input type="file" id="file" class="custom-file-input" name="image_three"onchange="readURL3(this);" >
                                     <span class="custom-file-control"></span>
-                                </label>                            </div>
+                                    <img src="#" id="three">
+                                </label>
+                            </div>
                         </div><!-- col-4 -->
 
                     </div><!-- row -->
@@ -251,6 +257,9 @@
 
     </script>
 
+
+
+    {{--هذه خاصة بجزئية الصور عند وضع صور للمنتج --}}
     <script type="text/javascript">
         function readURL(input){
             if (input.files && input.files[0]) {
@@ -265,4 +274,63 @@
             }
         }
     </script>
+
+
+
+    <script type="text/javascript">
+        function readURL2(input){
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#two')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        function readURL3(input){
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#three')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    {{--هذه خاصة بجزئية الصور عند وضع صور للمنتج --}}
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
