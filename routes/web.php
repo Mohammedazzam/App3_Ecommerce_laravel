@@ -73,6 +73,7 @@ Route::get('get/subcategory/{category_id}', 'Admin\ProductController@GetSubcat')
     //Product All Route
 Route::get('admin/product/all', 'Admin\ProductController@index')->name('all.product');
 Route::get('admin/product/add', 'Admin\ProductController@create')->name('add.product');
+Route::post('admin/store/product', 'Admin\ProductController@store')->name('store.product');
 
 
 
