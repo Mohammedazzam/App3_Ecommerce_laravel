@@ -127,7 +127,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image One (Main Thumbnali): <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);">
+                                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required="">
                                     <span class="custom-file-control"></span>
                                     <img src="#" id="one">
                                 </label>
@@ -140,7 +140,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image Tow: <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);">
+                                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);" required="">
                                     <span class="custom-file-control"></span>
                                     <img src="#" id="two">
                                 </label>
@@ -153,7 +153,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label>
                                 <label class="custom-file">
-                                    <input type="file" id="file" class="custom-file-input" name="image_three"onchange="readURL3(this);" >
+                                    <input type="file" id="file" class="custom-file-input" name="image_three"onchange="readURL3(this);" required="" >
                                     <span class="custom-file-control"></span>
                                     <img src="#" id="three">
                                 </label>
