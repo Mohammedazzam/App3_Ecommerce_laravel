@@ -21,7 +21,10 @@ class ProductController extends Controller
                             ->join('brands','products.brand_id','brands.id')
                             ->select('products.*','categories.category_name','brands.brand_name')
                             ->get();
-                            return response()->json($product);
+//                            return response()->json($product);
+
+                            return view('admin.product.index',compact('product'));
+
 
     }
 
