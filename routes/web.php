@@ -77,6 +77,10 @@ Route::post('admin/store/product', 'Admin\ProductController@store')->name('store
 
 
 
+Route::get('inactive/product/{id}', 'Admin\ProductController@inactive');
+Route::get('active/product/{id}', 'Admin\ProductController@active');
+
+
 
     //Front All Routes
 Route::post('store/newslater', 'FrontController@StoreNewslater')->name('store.newslater');

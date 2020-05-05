@@ -21,14 +21,15 @@
                         <tr>
                             <th class="wd-15p">Product Code</th>
                             <th class="wd-15p">Product Name</th>
-                            <th class="wd-15p">Image </th>
-                            <th class="wd-15p">Category </th>
-                            <th class="wd-15p">Brand </th>
-                            <th class="wd-15p">Quantity </th>
-                            <th class="wd-15p">Status </th>
-                            <th class="wd-20p">Action</th>
-                        </tr>
+                            <th class="wd-15p">Image</th>
+                            <th class="wd-15p">Category</th>
+                            <th class="wd-15p">Brand</th>
+                            <th class="wd-15p">Quantity</th>
+                            <th class="wd-15p">Status</th>
+                            <th class="wd-15p">Action</th>
+                            <th></th>
 
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($product as $row)
@@ -49,13 +50,24 @@
 
                                 </td>
 
+
+
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-info" title="edit"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger" title="delete" id="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ URL::to('edit/product/'.$row->id) }} " class="btn btn-sm btn-info" title="edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ URL::to('delete/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="delete" id="delete"><i class="fa fa-trash"></i></a>
+
+                                    <a href="{{ URL::to('view/product/'.$row->id) }}" class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i></a>
+
+
+                                    @if($row->status == 1)
+                                        <a href="{{ URL::to('inactive/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="Inactive" ><i class="fa fa-thumbs-down"></i></a>
+                                    @else
+                                        <a href="{{ URL::to('active/product/'.$row->id) }}" class="btn btn-sm btn-info" title="Active" ><i class="fa fa-thumbs-up"></i></a>
+                                    @endif
+
+
+
                                 </td>
-
-
-
 
                             </tr>
                         @endforeach
