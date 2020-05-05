@@ -11,7 +11,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Product List
 
-                    <a href="{{route('add.product')}}" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">Add New</a>
+                    <a href="{{route('add.product')}}" class="btn btn-sm btn-warning" style="float: right;">Add New</a>
 
                 </h6>
 
