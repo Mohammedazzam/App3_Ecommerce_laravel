@@ -160,4 +160,11 @@ class ProductController extends Controller
         return view('admin.product.show',compact('product'));
         // return response()->json($product);
     }
+
+
+    public function EditProduct($id){
+
+        $product = DB::table('products')->where('id',$id)->first();
+        return view('admin.product.edit',compact('product'));
+    }
 }
