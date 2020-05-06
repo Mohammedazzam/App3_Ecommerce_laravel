@@ -44,6 +44,7 @@ class ProductController extends Controller
 
     public function store(Request $request){
 
+        $data = array();
         $data ['product_name'] = $request->product_name;
         $data ['product_code'] = $request->product_code;
         $data ['product_quantity'] = $request->product_quantity;
@@ -166,5 +167,47 @@ class ProductController extends Controller
 
         $product = DB::table('products')->where('id',$id)->first();
         return view('admin.product.edit',compact('product'));
+
+    }
+
+
+    public function UpdateProductWithoutPho(Request $request,$id){
+
+        $data = array();
+        $data ['product_name'] = $request->product_name;
+        $data ['product_code'] = $request->product_code;
+        $data ['product_quantity'] = $request->product_quantity;
+        $data ['discount_price'] = $request->discount_price;
+        $data ['category_id'] = $request->category_id;
+        $data ['subcategory_id'] = $request->subcategory_id;
+        $data ['brand_id'] = $request->brand_id;
+        $data ['product_size'] = $request->product_size;
+        $data ['product_color'] = $request->product_color;
+        $data ['selling_price'] = $request->selling_price;
+        $data ['product_details'] = $request->product_details;
+        $data ['video_link'] = $request->video_link;
+        $data ['main_slider'] = $request->main_slider;
+        $data ['hot_deal'] = $request->hot_deal;
+        $data ['best_rated'] = $request->best_rated;
+        $data ['trend'] = $request->trend;
+        $data ['mid_slider'] = $request->mid_slider;
+        $data ['hot_new'] = $request->hot_new;
+
+        $update =DB::table('products')->where('id',$id)->update($data);
+
+
+        if ($update){
+            $notification=array(
+                'messege'=>'Product Successfully Updated',
+                'alert-type'=>'success'
+            );
+            return Redirect()->route('all.product')->with($notification);
+        }else{
+            $notification=array(
+                'messege'=>'Nothing To Update',
+                'alert-type'=>'success'
+            );
+            return Redirect()->route('all.product')->with($notification);
+        }
     }
 }

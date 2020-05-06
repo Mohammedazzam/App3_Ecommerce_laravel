@@ -84,6 +84,8 @@ Route::get('delete/product/{id}', 'Admin\ProductController@DeleteProduct');
 Route::get('view/product/{id}', 'Admin\ProductController@ViewProduct');
 Route::get('edit/product/{id}', 'Admin\ProductController@EditProduct');
 
+Route::post('update/product/withoutphoto/{id}', 'Admin\ProductController@UpdateProductWithoutPho');
+
 
 
     //Front All Routes
