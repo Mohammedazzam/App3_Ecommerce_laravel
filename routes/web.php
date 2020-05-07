@@ -89,6 +89,12 @@ Route::post('update/product/photo/{id}', 'Admin\ProductController@UpdateProductP
 
 
 
+    //Blog Admin All
+Route::get('blog/category/list', 'Admin\PostController@BlogCatList')->name('add.blog.categorylist');
+Route::post('admin/store/blog', 'Admin\PostController@BlogCatStore')->name('store.blog.category');
+
+
+
     //Front All Routes
 Route::post('store/newslater', 'FrontController@StoreNewslater')->name('store.newslater');
 
