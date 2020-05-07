@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+
 class PostController extends Controller
 {
     public function __construct()
@@ -37,4 +38,39 @@ class PostController extends Controller
         return Redirect()->back()->with($notification);
 
     }
+
+
+    public function BlogCat($id){
+
+        DB::table('post_category')->where('id',$id)->delete();
+        $notification=array(
+            'messege'=>' Category Deleted Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+
+
+    public function EditBlogCat($id){
+
+        $blogcatedit = DB::table('post_category')->where('id',$id)->first();
+        return view('admin.blog.category.edit',compact('blogcatedit'));
+    }
+
+
+    public function UpdateBlogCat(Request $request,$id){
+        $data = array();
+        $data['category_name_en'] = $request->category_name_en;
+        $data['category_name_in'] = $request->category_name_in;
+        DB::table('post_category')->where('id',$id)->update($data);
+        $notification=array(
+            'messege'=>'Blog Category Update Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->route('add.blog.categorylist')->with($notification);
+
+    }
+
+
+
 }

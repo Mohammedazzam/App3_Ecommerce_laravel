@@ -92,6 +92,9 @@ Route::post('update/product/photo/{id}', 'Admin\ProductController@UpdateProductP
     //Blog Admin All
 Route::get('blog/category/list', 'Admin\PostController@BlogCatList')->name('add.blog.categorylist');
 Route::post('admin/store/blog', 'Admin\PostController@BlogCatStore')->name('store.blog.category');
+Route::get('delete/blogcategory/{id}', 'Admin\PostController@BlogCat');
+Route::get('edit/blogcategory/{id}', 'Admin\PostController@EditBlogCat');
+Route::post('update/blog/category/{id}', 'Admin\PostController@UpdateBlogCat');
 
 
 
