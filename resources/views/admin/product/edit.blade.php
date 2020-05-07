@@ -242,8 +242,12 @@
                             <label class="form-control-label">Image One ( Main Thumbnali): <span class="tx-danger">*</span></label><br>
                             <label class="custom-file">
                                 <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" >
+
                                 <span class="custom-file-control"></span>
+
                                 <input type="hidden" name="old_one" value="{{ $product->image_one }}">
+
+
                                 <img src="#" id="one">
                             </label>
                         </div>
@@ -259,9 +263,13 @@
 
                             <label class="form-control-label">Image Two: <span class="tx-danger">*</span></label><br>
                             <label class="custom-file">
+
                                 <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);"  >
+
                                 <span class="custom-file-control"></span>
+
                                 <input type="hidden" name="old_two" value="{{ $product->image_two }}">
+
                                 <img src="#" id="two">
                             </label>
                         </div>
@@ -277,9 +285,13 @@
 
                             <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label><br>
                             <label class="custom-file">
+
                                 <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this);"  >
+
                                 <span class="custom-file-control"></span>
+
                                 <input type="hidden" name="old_three" value="{{ $product->image_three }}">
+
                                 <img src="#" id="three">
                             </label>
                         </div>
