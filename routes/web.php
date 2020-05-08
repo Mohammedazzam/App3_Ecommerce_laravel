@@ -96,6 +96,12 @@ Route::get('delete/blogcategory/{id}', 'Admin\PostController@BlogCat');
 Route::get('edit/blogcategory/{id}', 'Admin\PostController@EditBlogCat');
 Route::post('update/blog/category/{id}', 'Admin\PostController@UpdateBlogCat');
 
+Route::get('admin/add/post', 'Admin\PostController@Create')->name('add.blogpost');
+Route::get('admin/all/post', 'Admin\PostController@index')->name('all.blogpost');
+
+Route::post('admin/store/post', 'Admin\PostController@store')->name('store.post');
+
+
 
 
     //Front All Routes

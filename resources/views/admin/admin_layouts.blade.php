@@ -128,8 +128,8 @@
             </a><!-- sl-menu-link -->
             <ul class="sl-menu-sub nav flex-column">
                 <li class="nav-item"><a href="{{route('add.blog.categorylist')}}" class="nav-link">Blog Category</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Add Post</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Post List</a></li>
+                <li class="nav-item"><a href="{{route('add.blogpost')}}" class="nav-link">Add Post</a></li>
+                <li class="nav-item"><a href="{{route('all.blogpost')}}" class="nav-link">Post List</a></li>
             </ul>
 
             <a href="#" class="sl-menu-link">
@@ -407,6 +407,22 @@
 
         // Summernote editor
         $('#summernote').summernote({
+            height: 150,
+            tooltip: false
+        })
+    });
+</script>
+
+
+<script>
+    $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote1').summernote({
             height: 150,
             tooltip: false
         })

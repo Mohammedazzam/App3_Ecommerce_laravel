@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Image;
+
 
 class PostController extends Controller
 {
@@ -14,49 +16,49 @@ class PostController extends Controller
     }
 
     public function BlogCatList(){
-
         $blogcat = DB::table('post_category')->get();
         return view('admin.blog.category.index',compact('blogcat'));
 
     }
 
-    public function BlogCatStore(Request $request){
 
-        $validateData = $request->validate([
-           'category_name_en' =>'required|max:255',
-           'category_name_in' =>'required|max:255',
+    public function BlogCatStore(Request $request){
+        $validateDate = $request->validate([
+            'category_name_en' => 'required|max:255',
+            'category_name_in' => 'required|max:255',
+
         ]);
 
         $data = array();
         $data['category_name_en'] = $request->category_name_en;
         $data['category_name_in'] = $request->category_name_in;
         DB::table('post_category')->insert($data);
-         $notification=array(
-             'messege'=>'Blog Category Added Successfully',
-             'alert-type'=>'success'
-         );
-        return Redirect()->back()->with($notification);
-
-    }
-
-
-    public function BlogCat($id){
-
-        DB::table('post_category')->where('id',$id)->delete();
         $notification=array(
-            'messege'=>' Category Deleted Successfully',
+            'messege'=>'Blog Category Added Successfully',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
     }
 
 
-    public function EditBlogCat($id){
 
-        $blogcatedit = DB::table('post_category')->where('id',$id)->first();
-        return view('admin.blog.category.edit',compact('blogcatedit'));
+    public function DeleteBlogCat($id){
+        DB::table('post_category')->where('id',$id)->delete();
+        $notification=array(
+            'messege'=>'Blog Category Deleted Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
     }
 
+
+
+    public function EditBlogCat($id){
+        $blogcatedit = DB::table('post_category')->where('id',$id)->first();
+        return view('admin.blog.category.edit',compact('blogcatedit'));
+
+    }
 
     public function UpdateBlogCat(Request $request,$id){
         $data = array();
@@ -68,6 +70,18 @@ class PostController extends Controller
             'alert-type'=>'success'
         );
         return Redirect()->route('add.blog.categorylist')->with($notification);
+
+    }
+
+
+    public function Create(){
+
+        $blogcategory = DB::table('post_category')->get();
+        return view('admin.blog.create',compact('blogcategory'));
+
+    }
+
+    public function store(){
 
     }
 
