@@ -85,8 +85,7 @@ class PostController extends Controller
 
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
 
         $data = array();
         $data['post_title_en'] = $request->post_title_en;
@@ -94,29 +93,27 @@ class PostController extends Controller
         $data['category_id'] = $request->category_id;
         $data['details_en'] = $request->details_en;
         $data['details_in'] = $request->details_in;
-        $data['post_image'] = $request->post_image;
 
         $post_image = $request->file('post_image');
 
         if ($post_image) {
-            $post_image_name = hexdec(uniqid()) . '.' . $post_image->getClientOriginalExtension();
-            Image::make($post_image)->resize(400, 200)->save('public/media/post/' . $post_image_name);
-            $data['post_image'] = 'public/media/post/' . $post_image_name;
+            $post_image_name = hexdec(uniqid()).'.'.$post_image->getClientOriginalExtension();
+            Image::make($post_image)->resize(400,200)->save('public/media/post/'.$post_image_name);
+            $data['post_image'] = 'public/media/post/'.$post_image_name;
 
             DB::table('posts')->insert($data);
-            $notification = array(
-                'messege' => 'Post Inserted Successfully',
-                'alert-type' => 'success'
+            $notification=array(
+                'messege'=>'Post Inserted Successfully',
+                'alert-type'=>'success'
             );
             return Redirect()->back()->with($notification);
-
 
         }else{
             $data['post_image']='';
             DB::table('posts')->insert($data);
-            $notification = array(
-                'messege' => 'Post Inserted Without Image',
-                'alert-type' => 'success'
+            $notification=array(
+                'messege'=>'Post Inserted Without Image',
+                'alert-type'=>'success'
             );
             return Redirect()->back()->with($notification);
 
