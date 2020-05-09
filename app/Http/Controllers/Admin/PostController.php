@@ -121,7 +121,15 @@ class PostController extends Controller
             return Redirect()->back()->with($notification);
 
         }
+    }
 
 
+    public function index(){
+        $post = DB::table('posts')
+                ->join('post_category','posts.category_id','post_category.id')
+            ->select('posts.*','post_category.category_name_en')
+            ->get();
+
+        return response()->json($post);
     }
 }
