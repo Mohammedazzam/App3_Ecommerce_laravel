@@ -146,4 +146,11 @@ class PostController extends Controller
         return Redirect()->back()->with($notification);
 
     }
+
+
+    public function EditPost($id){
+        $post = DB::table('posts')->where('id',$id)->first();
+
+        return view('admin.blog.edit',compact('post'));
+    }
 }

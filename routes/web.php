@@ -101,6 +101,7 @@ Route::get('admin/all/post', 'Admin\PostController@index')->name('all.blogpost')
 
 Route::post('admin/store/post', 'Admin\PostController@store')->name('store.post');
 Route::get('delete/post/{id}', 'Admin\PostController@DeletePost');
+Route::get('edit/post/{id}', 'Admin\PostController@EditPost');
 
 
 
